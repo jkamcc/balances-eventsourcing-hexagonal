@@ -1,8 +1,21 @@
 package org.devengineering.balances;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class EventStore {
 
-    public void append(String accountId, BalanceMovement movement) {
-        throw new UnsupportedOperationException("Not implemented yet");
+    protected Path filePath;
+
+    public EventStore(String filePath) {
+        this.filePath = Path.of(filePath);
+    }
+
+    public void append(String accountId, BalanceMovedEvent movement) throws IOException {
+        final String accountPath = String.format("%s/%s", this.filePath, accountId);
+        if (!Files.exists(Path.of(accountPath))) {
+            Files.createDirectories(Path.of(accountPath));
+        }
     }
 }

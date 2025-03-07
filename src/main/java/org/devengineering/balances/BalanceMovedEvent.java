@@ -1,0 +1,15 @@
+package org.devengineering.balances;
+
+import java.util.UUID;
+
+public record BalanceMovedEvent(
+        UUID eventId,
+        String accountId,
+        double amount
+) implements Event{
+
+    @Override
+    public UUID getEventId() {
+        return this.eventId;
+    }
+}
