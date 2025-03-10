@@ -5,7 +5,7 @@ import java.util.UUID;
 public record BalanceMovedEvent(
         UUID eventId,
         String accountId,
-        double amount
+        String amount
 ) implements Event{
 
     @Override
