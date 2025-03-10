@@ -2,12 +2,12 @@ package org.devengineering.balances;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.skyscreamer.jsonassert.JSONAssert;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class EventStoreTest {
@@ -23,7 +23,7 @@ class EventStoreTest {
     void checkAddElementExists() throws Exception {
         var eventStore = new EventStore(filePath);
         var accountId = "a";
-        var eventId = UUID.randomUUID();
+        var eventId = UUID.fromString("353c9ad7-a9f6-45f8-b605-04be4a5862ed");
         var balanceMovement = new BalanceMovedEvent(eventId, accountId, String.valueOf(10));
         eventStore.append(accountId, balanceMovement);
 
@@ -32,9 +32,13 @@ class EventStoreTest {
         assertTrue(Files.exists(eventFilePath));
 
         byte[] jsonData = Files.readAllBytes(eventFilePath);
-        var resultObject = eventStore.objectMapper.readValue(jsonData, BalanceMovedEvent.class);
 
-        assertEquals(balanceMovement, resultObject);
+        String actualJson = new String(jsonData);
+        String expectedJson =
+               """
+               {"eventId":"353c9ad7-a9f6-45f8-b605-04be4a5862ed","accountId":"a","amount":"10"}
+               """;
+        JSONAssert.assertEquals(expectedJson, actualJson, true);
     }
 
 }
