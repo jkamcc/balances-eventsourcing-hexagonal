@@ -1,2 +1,4 @@
 rootProject.name = 'balances-event-sourcing'
 
+include 'domain'
+include 'application'

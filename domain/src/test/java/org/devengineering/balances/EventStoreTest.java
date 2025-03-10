@@ -28,6 +28,8 @@ class EventStoreTest {
 
         assertTrue(Files.exists(Path.of(eventStore.filePath.toString(), accountId)));
         assertTrue(Files.exists(Path.of(eventStore.filePath.toString(), accountId, eventId.toString())));
+
+
     }
 
 }
