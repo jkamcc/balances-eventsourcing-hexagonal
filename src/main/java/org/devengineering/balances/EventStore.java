@@ -17,5 +17,7 @@ public class EventStore {
         if (!Files.exists(accountPath)) {
             Files.createDirectories(accountPath);
         }
+
+        Files.write(Path.of(accountPath.toString(), movement.getEventId().toString()), movement.toString().getBytes());
     }
 }

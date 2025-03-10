@@ -20,13 +20,14 @@ class EventStoreTest {
 
     @Test
     void checkAddElementExists() throws Exception {
-        final String filePath = "/tmp/event-store/";
         var eventStore = new EventStore(filePath);
         var accountId = "a";
-        var balanceMovement = new BalanceMovedEvent(UUID.randomUUID(), accountId, 10);
+        var eventId = UUID.randomUUID();
+        var balanceMovement = new BalanceMovedEvent(eventId, accountId, 10);
         eventStore.append(accountId, balanceMovement);
 
         assertTrue(Files.exists(Path.of(eventStore.filePath.toString(), accountId)));
+        assertTrue(Files.exists(Path.of(eventStore.filePath.toString(), accountId, eventId.toString())));
     }
 
 }
