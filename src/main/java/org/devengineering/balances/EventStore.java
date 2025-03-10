@@ -13,9 +13,9 @@ public class EventStore {
     }
 
     public void append(String accountId, BalanceMovedEvent movement) throws IOException {
-        final String accountPath = String.format("%s/%s", this.filePath, accountId);
-        if (!Files.exists(Path.of(accountPath))) {
-            Files.createDirectories(Path.of(accountPath));
+        final Path accountPath = Path.of(this.filePath.toString(), accountId);
+        if (!Files.exists(accountPath)) {
+            Files.createDirectories(accountPath);
         }
     }
 }

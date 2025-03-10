@@ -26,7 +26,7 @@ class EventStoreTest {
         var balanceMovement = new BalanceMovedEvent(UUID.randomUUID(), accountId, 10);
         eventStore.append(accountId, balanceMovement);
 
-        assertTrue(Files.exists(Path.of(eventStore.filePath + "/" + accountId)));
+        assertTrue(Files.exists(Path.of(eventStore.filePath.toString(), accountId)));
     }
 
 }
