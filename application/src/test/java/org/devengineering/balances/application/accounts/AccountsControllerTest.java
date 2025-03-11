@@ -1,4 +1,4 @@
-package org.devengineering.balances.application;
+package org.devengineering.balances.application.accounts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
@@ -21,7 +21,7 @@ class AccountsControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
 
         JavalinTest.test(app, (server, client) -> {
-            new AccountsController(app);
+            new AccountsModule().registerRoutes(app);
             var response = client.post("/api/v1/accounts/deposit", balanceMovedEvent);
             assertEquals(201, response.code());
             JSONAssert.assertEquals(objectMapper.writeValueAsString(balanceMovedEvent),

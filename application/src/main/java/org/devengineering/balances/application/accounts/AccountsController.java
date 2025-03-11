@@ -1,14 +1,9 @@
-package org.devengineering.balances.application;
+package org.devengineering.balances.application.accounts;
 
-import io.javalin.Javalin;
 import io.javalin.http.Context;
 import org.devengineering.balances.BalanceMovedEvent;
 
 public class AccountsController {
-
-    public AccountsController(final Javalin app) {
-        app.post("/api/v1/accounts/deposit", this::deposit);
-    }
 
     public void deposit(Context ctx) {
         var balanceMovement= ctx.bodyAsClass(BalanceMovedEvent.class);
