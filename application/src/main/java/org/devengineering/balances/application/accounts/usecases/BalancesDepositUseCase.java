@@ -6,5 +6,5 @@ import java.io.IOException;
 
 public interface BalancesDepositUseCase {
 
-    void deposit(String accountId, BalanceMovedEvent balanceMovedEvent) throws IOException;
+  void deposit(String accountId, BalanceMovedEvent balanceMovedEvent) throws IOException;
 }

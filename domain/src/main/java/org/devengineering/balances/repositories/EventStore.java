@@ -6,6 +6,5 @@ import java.io.IOException;
 
 public interface EventStore {
 
-    void append(String accountId, BalanceMovedEvent movement) throws IOException;
-
+  void append(String accountId, BalanceMovedEvent movement) throws IOException;
 }

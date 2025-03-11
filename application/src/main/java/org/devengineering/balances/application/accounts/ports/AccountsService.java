@@ -8,15 +8,14 @@ import java.io.IOException;
 
 public class AccountsService implements BalancesDepositUseCase {
 
-    EventStore eventStore;
+  private final EventStore eventStore;
 
-    public AccountsService(EventStore eventStore) {
-        this.eventStore = eventStore;
-    }
+  public AccountsService(EventStore eventStore) {
+    this.eventStore = eventStore;
+  }
 
-    @Override
-    public void deposit(String accountId, BalanceMovedEvent balanceMovedEvent)
-            throws IOException {
-        eventStore.append(accountId, balanceMovedEvent);
-    }
+  @Override
+  public void deposit(String accountId, BalanceMovedEvent balanceMovedEvent) throws IOException {
+    eventStore.append(accountId, balanceMovedEvent);
+  }
 }

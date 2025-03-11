@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface BalancesViewUseCase {
 
-    List<BalanceMovedEvent> getBalancesByAccountId(String accountId);
-
+  List<BalanceMovedEvent> getBalancesByAccountId(String accountId);
 }

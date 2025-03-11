@@ -8,24 +8,23 @@ import java.io.IOException;
 
 public class AccountsController {
 
-    AccountsService accountsService;
+  private final AccountsService accountsService;
 
-    public AccountsController(AccountsService accountsService) {
-        this.accountsService = accountsService;
+  public AccountsController(AccountsService accountsService) {
+    this.accountsService = accountsService;
+  }
+
+  public void deposit(Context ctx) {
+    var balanceMovement = ctx.bodyAsClass(BalanceMovedEvent.class);
+
+    try {
+      accountsService.deposit(balanceMovement.accountId(), balanceMovement);
+    } catch (IOException e) {
+      ctx.status(500);
+      return;
     }
 
-    public void deposit(Context ctx) {
-        var balanceMovement= ctx.bodyAsClass(BalanceMovedEvent.class);
-
-        try {
-            accountsService.deposit(balanceMovement.accountId(), balanceMovement);
-        } catch (IOException e) {
-            ctx.status(500);
-            return;
-        }
-
-        ctx.json(balanceMovement);
-        ctx.status(201);
-    }
-
+    ctx.json(balanceMovement);
+    ctx.status(201);
+  }
 }

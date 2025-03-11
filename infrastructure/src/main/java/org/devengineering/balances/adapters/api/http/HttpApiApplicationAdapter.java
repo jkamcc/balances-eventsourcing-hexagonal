@@ -7,13 +7,11 @@ import org.devengineering.balances.application.accounts.ports.AccountsService;
 
 public class HttpApiApplicationAdapter {
 
-    public static void main(String[] args) {
-        Javalin app = Javalin.create().start(7001);
-        app.get("/", ctx -> ctx.result("Hello, Javalin!"));
+  public static void main(String[] args) {
+    Javalin app = Javalin.create().start(7001);
+    app.get("/", ctx -> ctx.result("Hello, Javalin!"));
 
-        new AccountsModule().registerRoutes(
-                app,
-                new AccountsService(
-                        new FilesEventStore("/tmp/event-store/api")));
-    }
+    new AccountsModule()
+        .registerRoutes(app, new AccountsService(new FilesEventStore("/tmp/event-store/api")));
+  }
 }

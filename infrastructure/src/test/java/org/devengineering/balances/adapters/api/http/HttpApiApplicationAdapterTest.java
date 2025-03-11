@@ -7,13 +7,15 @@ import org.junit.jupiter.api.Test;
 
 class HttpApiApplicationAdapterTest {
 
-    @Test
-    void testHelloEndpoint() {
-        Javalin app = Javalin.create().get("/", ctx -> ctx.result("Hello, Javalin!"));
-        JavalinTest.test(app, (server, client) -> {
-            var response = client.get("/");
-            Assertions.assertEquals(200, response.code());
-            Assertions.assertEquals("Hello, Javalin!", response.body().string());
+  @Test
+  void testHelloEndpoint() {
+    Javalin app = Javalin.create().get("/", ctx -> ctx.result("Hello, Javalin!"));
+    JavalinTest.test(
+        app,
+        (server, client) -> {
+          var response = client.get("/");
+          Assertions.assertEquals(200, response.code());
+          Assertions.assertEquals("Hello, Javalin!", response.body().string());
         });
-    }
+  }
 }
