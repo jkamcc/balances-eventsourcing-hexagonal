@@ -1,7 +1,7 @@
 package org.devengineering.balances.application.accounts;
 
 import io.javalin.http.Context;
-import org.devengineering.balances.BalanceMovedEvent;
+import org.devengineering.balances.entities.BalanceMovedEvent;
 
 public class AccountsController {
 

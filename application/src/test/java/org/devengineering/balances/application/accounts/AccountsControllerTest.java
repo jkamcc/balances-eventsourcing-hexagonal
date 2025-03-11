@@ -3,7 +3,7 @@ package org.devengineering.balances.application.accounts;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
-import org.devengineering.balances.BalanceMovedEvent;
+import org.devengineering.balances.entities.BalanceMovedEvent;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 

@@ -1,5 +1,6 @@
-package org.devengineering.balances;
+package org.devengineering.balances.repositories;
 
+import org.devengineering.balances.entities.BalanceMovedEvent;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;

@@ -1,4 +1,4 @@
-package org.devengineering.balances;
+package org.devengineering.balances.entities;
 
 import java.util.UUID;
 

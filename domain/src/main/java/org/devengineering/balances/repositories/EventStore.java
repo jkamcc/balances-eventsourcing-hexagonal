@@ -1,6 +1,7 @@
-package org.devengineering.balances;
+package org.devengineering.balances.repositories;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.devengineering.balances.entities.BalanceMovedEvent;
 
 import java.io.IOException;
 import java.nio.file.Files;
