@@ -9,12 +9,12 @@ dependencies {
     implementation project(':domain')
     implementation project(':application')
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.0'
-
-    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
-
     implementation 'io.javalin:javalin-bundle:6.5.0'
+
     testImplementation 'io.javalin:javalin-testtools:6.5.0'
     testImplementation 'org.skyscreamer:jsonassert:1.5.0'
+    testImplementation 'org.skyscreamer:jsonassert:1.5.0'
+    testImplementation 'org.mockito:mockito-core:5.16.0'
 }
 
 test {

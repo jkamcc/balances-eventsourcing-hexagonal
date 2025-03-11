@@ -2,12 +2,13 @@ package org.devengineering.balances.adapters.files;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.devengineering.balances.entities.BalanceMovedEvent;
+import org.devengineering.balances.repositories.EventStore;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FilesEventStore {
+public class FilesEventStore implements EventStore {
 
     protected Path filePath;
 
