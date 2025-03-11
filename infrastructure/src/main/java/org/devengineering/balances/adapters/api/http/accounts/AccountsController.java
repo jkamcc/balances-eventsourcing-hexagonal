@@ -1,4 +1,4 @@
-package org.devengineering.balances.application.accounts;
+package org.devengineering.balances.adapters.api.http.accounts;
 
 import io.javalin.http.Context;
 import org.devengineering.balances.entities.BalanceMovedEvent;

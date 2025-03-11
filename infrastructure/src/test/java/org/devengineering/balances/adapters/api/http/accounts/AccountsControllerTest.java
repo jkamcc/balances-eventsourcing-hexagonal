@@ -1,9 +1,10 @@
-package org.devengineering.balances.application.accounts;
+package org.devengineering.balances.adapters.api.http.accounts;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.javalin.Javalin;
 import io.javalin.testtools.JavalinTest;
 import org.devengineering.balances.entities.BalanceMovedEvent;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 
@@ -23,7 +24,7 @@ class AccountsControllerTest {
         JavalinTest.test(app, (server, client) -> {
             new AccountsModule().registerRoutes(app);
             var response = client.post("/api/v1/accounts/deposit", balanceMovedEvent);
-            assertEquals(201, response.code());
+            Assertions.assertEquals(201, response.code());
             JSONAssert.assertEquals(objectMapper.writeValueAsString(balanceMovedEvent),
             response.body().string(), true);
         });

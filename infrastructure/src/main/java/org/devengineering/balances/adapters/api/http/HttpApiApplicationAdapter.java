@@ -1,9 +1,9 @@
-package org.devengineering.balances.application;
+package org.devengineering.balances.adapters.api.http;
 
 import io.javalin.Javalin;
-import org.devengineering.balances.application.accounts.AccountsModule;
+import org.devengineering.balances.adapters.api.http.accounts.AccountsModule;
 
-public class Application {
+public class HttpApiApplicationAdapter {
 
     public static void main(String[] args) {
         Javalin app = Javalin.create().start(7001);
