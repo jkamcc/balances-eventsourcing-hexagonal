@@ -1,4 +1,4 @@
-package org.devengineering.balances.repositories;
+package org.devengineering.balances.adapters.files;
 
 import org.devengineering.balances.entities.BalanceMovedEvent;
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class EventStoreTest {
+class FilesEventStoreTest {
 
     final String filePath = "/tmp/event-store/";
 
@@ -22,7 +22,7 @@ class EventStoreTest {
 
     @Test
     void checkAddElementExists() throws Exception {
-        var eventStore = new EventStore(filePath);
+        var eventStore = new FilesEventStore(filePath);
         var accountId = "a";
         var eventId = UUID.fromString("353c9ad7-a9f6-45f8-b605-04be4a5862ed");
         var balanceMovement = new BalanceMovedEvent(eventId, accountId, String.valueOf(10));

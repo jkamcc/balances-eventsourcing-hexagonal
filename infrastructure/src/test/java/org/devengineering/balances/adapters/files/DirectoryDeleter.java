@@ -1,4 +1,4 @@
-package org.devengineering.balances.repositories;
+package org.devengineering.balances.adapters.files;
 
 import java.io.IOException;
 import java.nio.file.Files;
